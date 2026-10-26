@@ -56,7 +56,7 @@ export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }
       tabIndex={0}
       role="region"
       aria-label={`Project card for ${project_name}`}
-      className={`group relative flex flex-col justify-between rounded-[22px] sm:rounded-[28px] bg-white border border-[#1E2024] p-3 sm:p-5 shadow-[0_4px_20px_-2px_rgba(35,37,40,0.03)] hover:shadow-[0_12px_28px_-4px_rgba(35,37,40,0.10)] transition-all duration-200 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#232528] ${isExpanded ? 'col-span-2' : ''}`}
+      className={`group relative flex flex-col justify-between rounded-[22px] sm:rounded-[28px] bg-white border border-[#1E2024] p-3 sm:p-5 shadow-[0_4px_20px_-2px_rgba(35,37,40,0.03)] hover:shadow-[0_12px_28px_-4px_rgba(35,37,40,0.10)] transition-all duration-200 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#232528] ${isExpanded ? 'col-span-2 lg:col-span-3' : ''}`}
     >
       {/* Top Header: Category, Title, 45-degree arrow action pill */}
       <div>
@@ -132,27 +132,27 @@ export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }
               )}
             </div>
 
-            {/* Admin credentials use the same light fields on mobile as account credentials. */}
+            {/* Admin credentials use light fields to match account credentials. */}
             {hasAdminCredentials && (
               <div className="pt-2 mt-1.5 border-t border-[#F0EEE6]">
-                <div className="bg-[#F7F6F1] text-[#1E2024] border border-[#EAE7DF] p-2.5 sm:p-3 rounded-xl sm:rounded-2xl space-y-1.5 shadow-xs sm:bg-[#232528] sm:text-white sm:border-transparent">
-                  <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#1E2024] sm:text-[#F5C443]">
+                <div className="bg-[#F7F6F1] text-[#1E2024] border border-[#EAE7DF] p-2.5 sm:p-3 rounded-xl sm:rounded-2xl space-y-1.5 shadow-xs">
+                  <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#1E2024]">
                     <div className="flex items-center gap-1">
-                      <ShieldAlert className="w-2 h-2 text-[#1E2024] sm:text-[#F5C443]" />
+                      <ShieldAlert className="w-2 h-2 text-[#767882]" />
                       <span>Admin Vault</span>
                     </div>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1E2024] sm:bg-[#F5C443]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#9FA1AC]" />
                   </div>
 
                   {admin_username && (
                     <div
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center justify-between bg-white px-2 py-1 rounded-lg border border-[#EAE7DF] text-[10px] sm:text-xs sm:bg-[#2F3136] sm:border-[#3E4047]"
+                      className="flex items-center justify-between bg-white px-2 py-1 rounded-lg border border-[#EAE7DF] text-[10px] sm:text-xs"
                     >
-                      <span className="font-mono text-[#1E2024] truncate select-all sm:text-white">
+                      <span className="font-mono text-[#1E2024] truncate select-all">
                         {admin_username}
                       </span>
-                      <CopyButton textToCopy={admin_username} label="Copy" className="text-[#767882] hover:text-[#1E2024] sm:text-[#F5C443] sm:hover:text-white" />
+                      <CopyButton textToCopy={admin_username} label="Copy" />
                     </div>
                   )}
 
@@ -161,7 +161,7 @@ export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }
                       <PasswordField
                         password={admin_password}
                         label="Admin Pass"
-                        className="sm:bg-[#2F3136] sm:border-[#3E4047] sm:text-white"
+                        className="bg-white border-[#EAE7DF]"
                       />
                     </div>
                   )}

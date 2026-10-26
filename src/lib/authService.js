@@ -31,14 +31,15 @@ export function getStoredSession() {
 }
 
 export async function loginWithUsername(username, password) {
-  if (!username || !password) {
+  const cleanUsername = username.trim();
+  const cleanPassword = password.trim();
+
+  if (!cleanUsername || !cleanPassword) {
     return { success: false, error: 'Please enter both username and password.' };
   }
 
-  const cleanUsername = username.trim();
-
   // Validate single admin user credentials
-  if (cleanUsername !== ADMIN_USERNAME || password !== ADMIN_PASSWORD) {
+  if (cleanUsername !== ADMIN_USERNAME || cleanPassword !== ADMIN_PASSWORD) {
     return { success: false, error: 'Invalid username or password.' };
   }
 

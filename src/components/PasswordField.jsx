@@ -7,6 +7,7 @@ export function PasswordField({
   label = 'Password',
   showCopy = true,
   className = '',
+  valueClassName = '',
 }) {
   const [revealed, setRevealed] = useState(false);
 
@@ -24,7 +25,7 @@ export function PasswordField({
       className={`flex items-center justify-between gap-1.5 bg-[#F7F6F1] px-2.5 sm:px-3 py-1.5 rounded-xl border border-[#EAE7DF] text-xs ${className}`}
     >
       <div className="flex items-center gap-2 overflow-hidden flex-1 min-w-0">
-        <span className="font-mono text-xs sm:text-[13px] text-[#1E2024] font-medium truncate select-all">
+        <span className={`font-mono text-xs sm:text-[13px] text-[#1E2024] font-medium truncate select-all ${valueClassName}`}>
           {revealed ? password : '••••••••••••'}
         </span>
       </div>
