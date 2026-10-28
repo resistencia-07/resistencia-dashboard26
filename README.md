@@ -95,7 +95,6 @@ The dashboard pages are nested inside `DashboardLayout` and protected by `Protec
 │   ├── context/               # Shared app state exposed through React context
 │   │   ├── AuthContext.jsx    # Demo login state and session
 │   │   ├── ToastContext.jsx   # Success, error, and offline notifications
-│   │   ├── ThemeContext.jsx   # Light/dark theme state
 │   │   ├── useAuth.js         # Hook for reading AuthContext
 │   │   └── useToast.js        # Hook for showing notifications
 │   ├── lib/                   # Data access and shared utilities

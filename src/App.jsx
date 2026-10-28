@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
-import { ThemeProvider } from './context/ThemeContext';
 import { supabaseConfigError } from './lib/supabase';
 import { ConfigErrorScreen } from './components/ConfigErrorScreen';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -17,33 +16,31 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <ToastProvider>
-            <Routes>
-              {/* Public Auth Route */}
-              <Route path="/login" element={<LoginPage />} />
+    <BrowserRouter>
+      <AuthProvider>
+        <ToastProvider>
+          <Routes>
+            {/* Public Auth Route */}
+            <Route path="/login" element={<LoginPage />} />
 
-              {/* Protected Routes */}
-              <Route
-                element={
-                  <ProtectedRoute>
-                    <DashboardLayout />
-                  </ProtectedRoute>
-                }
-              >
-                <Route path="/" element={<HomePage />} />
-                <Route path="/add-project" element={<AddProjectPage />} />
-                <Route path="/edit-project" element={<EditProjectPage />} />
-              </Route>
+            {/* Protected Routes */}
+            <Route
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="/" element={<HomePage />} />
+              <Route path="/add-project" element={<AddProjectPage />} />
+              <Route path="/edit-project" element={<EditProjectPage />} />
+            </Route>
 
-              {/* Catch-all redirect */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </ToastProvider>
-        </AuthProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+            {/* Catch-all redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </ToastProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }

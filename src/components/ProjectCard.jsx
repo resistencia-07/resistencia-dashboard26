@@ -2,13 +2,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, User, ShieldAlert, ChevronDown, ChevronUp } from 'lucide-react';
 import { PasswordField } from './PasswordField';
 import { CopyButton } from './CopyButton';
-import { formatDisplayDomain, normalizeUrl } from '../lib/urlUtils';
+import { normalizeUrl } from '../lib/urlUtils';
 
 export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }) {
   const {
     project_name,
     project_url,
-    category,
     username,
     password,
     admin_username,
@@ -16,7 +15,6 @@ export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }
   } = project;
 
   const validUrl = normalizeUrl(project_url);
-  const displayDomain = formatDisplayDomain(project_url);
 
   const handleCardClick = (e) => {
     // Prevent card navigation if clicking buttons, inputs, links, or form controls
@@ -40,9 +38,7 @@ export function ProjectCard({ project, index = 0, isExpanded, onToggleExpanded }
     }
   };
 
-  const hasUserCredentials = Boolean(username || password);
   const hasAdminCredentials = Boolean(admin_username || admin_password);
-  const hasAnyCredentials = hasUserCredentials || hasAdminCredentials;
 
   return (
     <motion.div
